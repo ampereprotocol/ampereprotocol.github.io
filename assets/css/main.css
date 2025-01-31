@@ -3762,7 +3762,6 @@ margin-top: 10px;
           padding: 8px 16px; /* Riduci il padding per renderlo più piccolo */
           font-size: 14px; /* Riduci la dimensione del testo */
           border-radius: 20px; /* Arrotonda gli angoli */
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Aggiungi un'ombra */
           transition: opacity 0.3s ease, transform 0.3s ease; /* Animazione per la scomparsa */
       }
 
