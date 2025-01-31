@@ -3757,7 +3757,7 @@ margin-top: 10px;
           display: block !important; /* Forza la visualizzazione del pulsante */
           position: fixed; /* Fissa il pulsante in basso a destra */
           bottom: 20px;
-          left: 5px;
+          left: 100px;
           z-index: 1000; /* Assicura che sia sopra altri elementi */
           padding: 8px 16px; /* Riduci il padding per renderlo più piccolo */
           font-size: 14px; /* Riduci la dimensione del testo */
