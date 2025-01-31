@@ -3752,3 +3752,65 @@ margin-top: 10px;
         font-size: 1rem;
         color: #555;
     }
+    @media (max-width: 767px) {
+      .navbar .button {
+          display: block !important; /* Forza la visualizzazione del pulsante */
+          position: fixed; /* Fissa il pulsante in basso a destra */
+          bottom: 20px;
+          left: 5px;
+          z-index: 1000; /* Assicura che sia sopra altri elementi */
+          padding: 8px 16px; /* Riduci il padding per renderlo più piccolo */
+          font-size: 14px; /* Riduci la dimensione del testo */
+          border-radius: 20px; /* Arrotonda gli angoli */
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Aggiungi un'ombra */
+          transition: opacity 0.3s ease, transform 0.3s ease; /* Animazione per la scomparsa */
+      }
+
+      .navbar .button.hide {
+          opacity: 0; /* Nasconde il pulsante */
+          transform: translateY(20px); /* Sposta il pulsante verso il basso */
+      }
+  }
+  @media (max-width: 767px) {
+    .partnership-carousel {
+        overflow: hidden; /* Nasconde il contenuto che esce dallo schermo */
+        position: relative;
+        width: 100%;
+        padding: 20px 0; /* Aggiunge spazio sopra e sotto */
+    }
+
+    .partnership-track {
+        display: flex;
+        animation: scroll 15s linear infinite; /* Velocizza l'animazione */
+        width: max-content; /* Impedisce il ritorno a capo */
+    }
+
+    .partnership-item {
+        flex: 0 0 auto;
+        width: 120px; /* Riduci la larghezza dei loghi */
+        margin-right: 40px; /* Aumenta lo spazio tra i loghi */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .partnership-item img {
+        width: 100%; /* Rendi i loghi responsive */
+        height: auto;
+        filter: grayscale(100%); /* Aggiungi un effetto in bianco e nero */
+        transition: filter 0.3s ease; /* Aggiungi una transizione */
+    }
+
+    .partnership-item:hover img {
+        filter: grayscale(0%); /* Torna al colore originale al passaggio del mouse */
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0); /* Inizia dall'inizio */
+        }
+        100% {
+            transform: translateX(-50%); /* Muove il contenuto verso sinistra */
+        }
+    }
+}
