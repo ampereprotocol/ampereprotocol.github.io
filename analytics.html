@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Ampere Protocol - Analytics Dashboard</title>
+    <meta name="description" content="Real-time analytics and insights for Ampere Protocol" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Analytics Specific CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.35.0/dist/apexcharts.min.css" />
+
+    <style>
+        /* Analytics Page Specific Styles */
+        .analytics-hero {
+            background: linear-gradient(135deg, #24126A 0%, #3E80FF 100%);
+            padding: 100px 0 80px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .analytics-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/analytics/hero-pattern.svg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 4px solid #3E80FF;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-card .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #24126A;
+            margin: 10px 0;
+            font-family: 'Spartan', sans-serif;
+        }
+
+        .metric-card .metric-label {
+            color: #727272;
+            font-size: 1rem;
+        }
+
+        .metric-card .metric-change {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        .metric-card .metric-change.positive {
+            background: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+        }
+
+        .metric-card .metric-change.negative {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .time-filter {
+            display: flex;
+            gap: 10px;
+        }
+
+        .time-filter-btn {
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: #F4F7FA;
+            color: #727272;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .time-filter-btn.active {
+            background: #3E80FF;
+            color: white;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .data-table th, .data-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table th {
+            color: #24126A;
+            font-weight: 600;
+        }
+
+        .data-table tr:hover {
+            background: #F4F7FA;
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-badge.success {
+            background: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+        }
+
+        .status-badge.warning {
+            background: rgba(241, 196, 15, 0.1);
+            color: #f1c40f;
+        }
+
+        .status-badge.danger {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+
+        @media (max-width: 767px) {
+            .metric-card {
+                margin-bottom: 20px;
+            }
+
+            .time-filter {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .chart-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="assets/images/logo/white-logo.svg" alt="Logo">
+                            </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a href="index.html" aria-label="Toggle navigation">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="about-us.html" aria-label="Toggle navigation">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                                            data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent"
+                                            aria-expanded="false" aria-label="Toggle navigation">Pages</a>
+                                        <ul class="sub-menu collapse" id="submenu-1-1">
+                                            <li class="nav-item"><a href="about-us.html">About Us</a></li>
+                                            <li class="nav-item"><a href="analytics.html">Analytics</a></li>
+                                            <li class="nav-item"><a href="signin.html">Sign In</a></li>
+                                            <li class="nav-item"><a href="signup.html">Sign Up</a></li>
+                                            <li class="nav-item"><a href="reset-password.html">Reset Password</a></li>
+                                            <li class="nav-item"><a href="mail-success.html">Mail Success</a></li>
+                                            <li class="nav-item"><a href="404.html">404 Error</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="contact.html" aria-label="Toggle navigation">Contact</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                            <div class="button">
+                                <a href="#" id="connectWallet" class="btn">Connect Wallet</a>
+                            </div>
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Analytics Hero Section -->
+    <section class="analytics-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="wow fadeInUp" data-wow-delay=".2s">Ampere Protocol Analytics</h1>
+                    <p class="wow fadeInUp" data-wow-delay=".4s">Real-time data and insights about the Ampere ecosystem</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Analytics Hero Section -->
+
+    <!-- Start Metrics Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".2s">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="lni lni-stats-up" style="font-size: 2rem; color: #3E80FF;"></i>
+                        </div>
+                        <div class="metric-value" id="totalAmpere">24.5M</div>
+                        <div class="metric-label">Total $AMPERE Circulating</div>
+                        <div class="metric-change positive">+12.5% <i class="lni lni-arrow-up"></i></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".4s">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="lni lni-users" style="font-size: 2rem; color: #3E80FF;"></i>
+                        </div>
+                        <div class="metric-value" id="totalUsers">18,429</div>
+                        <div class="metric-label">Active Users</div>
+                        <div class="metric-change positive">+8.3% <i class="lni lni-arrow-up"></i></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".6s">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="lni lni-sun" style="font-size: 2rem; color: #3E80FF;"></i>
+                        </div>
+                        <div class="metric-value" id="totalPanels">9,752</div>
+                        <div class="metric-label">Solar Panels Connected</div>
+                        <div class="metric-change positive">+15.1% <i class="lni lni-arrow-up"></i></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".8s">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="lni lni-leaf" style="font-size: 2rem; color: #3E80FF;"></i>
+                        </div>
+                        <div class="metric-value" id="co2Reduced">4.2M</div>
+                        <div class="metric-label">Liters of CO₂ Reduced</div>
+                        <div class="metric-change positive">+22.7% <i class="lni lni-arrow-up"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Metrics Section -->
+
+    <!-- Start Price Chart Section -->
+    <section class="section pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="chart-container wow fadeInUp" data-wow-delay=".2s">
+                        <div class="chart-header">
+                            <h3>$AMPERE Price History</h3>
+                            <div class="time-filter">
+                                <button class="time-filter-btn active">24H</button>
+                                <button class="time-filter-btn">7D</button>
+                                <button class="time-filter-btn">1M</button>
+                                <button class="time-filter-btn">3M</button>
+                                <button class="time-filter-btn">1Y</button>
+                                <button class="time-filter-btn">ALL</button>
+                            </div>
+                        </div>
+                        <div id="priceChart" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Price Chart Section -->
+
+    <!-- Start Volume & Transactions Section -->
+    <section class="section pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <div class="chart-container wow fadeInUp" data-wow-delay=".2s">
+                        <div class="chart-header">
+                            <h3>Trading Volume (24h)</h3>
+                        </div>
+                        <canvas id="volumeChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="chart-container wow fadeInUp" data-wow-delay=".4s">
+                        <div class="chart-header">
+                            <h3>Transactions Overview</h3>
+                        </div>
+                        <canvas id="transactionsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Volume & Transactions Section -->
+
+    <!-- Start Recent Transactions Section -->
+    <section class="section pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="chart-container wow fadeInUp" data-wow-delay=".2s">
+                        <div class="chart-header">
+                            <h3>Recent Transactions</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>TX Hash</th>
+                                        <th>Type</th>
+                                        <th>Amount</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Status</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">3F2b...5D7g</a></td>
+                                        <td>Token Swap</td>
+                                        <td>1,250 AMPERE</td>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">7uF3...f34C</a></td>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">5Gh2...k9Lm</a></td>
+                                        <td><span class="status-badge success">Completed</span></td>
+                                        <td>2 mins ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">9Kj5...3H1f</a></td>
+                                        <td>Solar Reward</td>
+                                        <td>245 AMPERE</td>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">System</a></td>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">8Mn3...p2Qr</a></td>
+                                        <td><span class="status-badge success">Completed</span></td>
+                                        <td>15 mins ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">7Rt8...2W4x</a></td>
+                                        <td>Token Purchase</td>
+                                        <td>5,000 AMPERE</td>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">9Xz1...v6Yt</a></td>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">7uF3...f34C</a></td>
+                                        <td><span class="status-badge success">Completed</span></td>
+                                        <td>32 mins ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">1Pq9...6Lk3</a></td>
+                                        <td>Token Swap</td>
+                                        <td>750 AMPERE</td>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">4Df7...h8Jm</a></td>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">2Gh5...n3Ki</a></td>
+                                        <td><span class="status-badge warning">Pending</span></td>
+                                        <td>47 mins ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">5Nm2...8Rf4</a></td>
+                                        <td>Token Transfer</td>
+                                        <td>3,200 AMPERE</td>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">6Vb9...q1Lp</a></td>
+                                        <td><a href="#" class="text-truncate" style="max-width: 100px; display: inline-block;">3Kj7...m5Hn</a></td>
+                                        <td><span class="status-badge success">Completed</span></td>
+                                        <td>1 hour ago</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Recent Transactions Section -->
+
+    <!-- Start Solar Production Section -->
+    <section class="section pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="chart-container wow fadeInUp" data-wow-delay=".2s">
+                        <div class="chart-header">
+                            <h3>Solar Energy Production</h3>
+                            <div class="time-filter">
+                                <button class="time-filter-btn active">24H</button>
+                                <button class="time-filter-btn">7D</button>
+                                <button class="time-filter-btn">1M</button>
+                            </div>
+                        </div>
+                        <div id="solarChart" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Solar Production Section -->
+
+    <!-- Start Footer Area -->
+    <footer class="footer section">
+        <!-- Start Footer Top -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-about">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="assets/images/logo/white-logo.svg" alt="#">
+                                    </a>
+                                </div>
+                                <p>Making the world a better place through constructing Real Technology.</p>
+                                <h4 class="social-title">Follow Us On:</h4>
+                                <ul class="social">
+                                    <li><a href="https://www.facebook.com/profile.php?id=100077280653900&locale=it_IT"><i class="lni lni-facebook-filled"></i></a></li>
+                                    <li><a href="https://www.instagram.com/ampereprotocol?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="lni lni-instagram"></i></a></li>
+                                    <li><a href="https://x.com/amperelayer"><i class="lni lni-twitter-original"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/cristiano-niceta-742919262/"><i class="lni lni-linkedin-original"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-pinterest"></i></a></li>
+                                    <li><a href="https://www.youtube.com/@ampereprotocol"><i class="lni lni-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Solutions</h3>
+                                <ul>
+                                    <li><a href="Solar-Crypto.html">Solar Crypto</a></li>
+                                    <li><a href="analytics.html">Analytics</a></li>
+                                    <li><a href="javascript:void(0)">Tokenomics</a></li>
+                                    <li><a href="javascript:void(0)">DeFi</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Support</h3>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Whitepaper</a></li>
+                                    <li><a href="javascript:void(0)">Documentation</a></li>
+                                    <li><a href="javascript:void(0)">Api</a></li>
+                                    <li><a href="javascript:void(0)">Status</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer newsletter">
+                                <h3>Subscribe</h3>
+                                <p>Subscribe to our newsletter for the latest updates</p>
+                                <form action="#" method="get" target="_blank" class="newsletter-form">
+                                    <input name="EMAIL" placeholder="Email address" required="required" type="email">
+                                    <div class="button">
+                                        <button class="sub-btn"><i class="lni lni-envelope"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Footer Top -->
+        <!-- Start Copyright Area -->
+        <div class="copyright-area">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <p class="copyright-text">© 2025 Ampere Protocol - All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright Area -->
+    </footer>
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/tiny-slider.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+    <script src="assets/js/count-up.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Analytics Specific JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.35.0/dist/apexcharts.min.js"></script>
+
+    <script>
+        // Initialize Wow.js
+        new WOW().init();
+
+        // Time Filter Buttons
+        document.querySelectorAll('.time-filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.time-filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // Here you would update the charts based on the selected time frame
+            });
+        });
+
+        // Price Chart (ApexCharts)
+        const priceChartOptions = {
+            series: [{
+                name: "$AMPERE Price",
+                data: [
+                    0.42, 0.45, 0.43, 0.47, 0.46, 0.48, 0.49, 0.47,
+                    0.50, 0.52, 0.51, 0.53, 0.55, 0.54, 0.56, 0.58,
+                    0.57, 0.59, 0.60, 0.62, 0.61, 0.63, 0.65, 0.64
+                ]
+            }],
+            chart: {
+                height: 400,
+                type: 'area',
+                toolbar: {
+                    show: true,
+                    tools: {
+                        download: true,
+                        selection: true,
+                        zoom: true,
+                        zoomin: true,
+                        zoomout: true,
+                        pan: true,
+                        reset: true
+                    }
+                },
+                zoom: {
+                    enabled: true
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                width: 2,
+                colors: ['#3E80FF']
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.7,
+                    opacityTo: 0.3,
+                    stops: [0, 90, 100]
+                }
+            },
+            colors: ['#3E80FF'],
+            xaxis: {
+                categories: [
+                    "00:00", "01:00", "02:00", "03:00", "04:00", "05:00",
+                    "06:00", "07:00", "08:00", "09:00", "10:00", "11:00",
+                    "12:00", "13:00", "14:00", "15:00", "16:00", "17:00",
+                    "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"
+                ],
+                labels: {
+                    style: {
+                        colors: '#727272'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    formatter: function (value) {
+                        return "$" + value.toFixed(2);
+                    },
+                    style: {
+                        colors: '#727272'
+                    }
+                }
+            },
+            tooltip: {
+                y: {
+                    formatter: function (value) {
+                        return "$" + value.toFixed(2);
+                    }
+                }
+            }
+        };
+
+        const priceChart = new ApexCharts(document.querySelector("#priceChart"), priceChartOptions);
+        priceChart.render();
+
+        // Volume Chart (Chart.js)
+        const volumeCtx = document.getElementById('volumeChart').getContext('2d');
+        const volumeChart = new Chart(volumeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Trading Volume (in millions)',
+                    data: [5.2, 6.8, 7.5, 8.2, 9.1, 10.5, 11.2, 12.8, 13.5, 14.2, 15.1, 16.5],
+                    backgroundColor: '#3E80FF',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return '$' + context.raw + 'M';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value + 'M';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Transactions Chart (Chart.js)
+        const transactionsCtx = document.getElementById('transactionsChart').getContext('2d');
+        const transactionsChart = new Chart(transactionsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Token Swaps', 'Solar Rewards', 'Token Purchases', 'Transfers', 'Other'],
+                datasets: [{
+                    data: [35, 25, 20, 15, 5],
+                    backgroundColor: [
+                        '#3E80FF',
+                        '#2ecc71',
+                        '#f1c40f',
+                        '#e74c3c',
+                        '#9b59b6'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.raw + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Solar Production Chart (ApexCharts)
+        const solarChartOptions = {
+            series: [{
+                name: "Energy Production (kWh)",
+                data: [
+                    1200, 1900, 1600, 2100, 1800, 2400, 2200, 2500,
+                    2300, 2800, 2600, 3000, 2900, 3200, 3100, 3400,
+                    3300, 3600, 3500, 3800, 3700, 4000, 3900, 4200
+                ]
+            }],
+            chart: {
+                height: 400,
+                type: 'line',
+                toolbar: {
+                    show: true
+                }
+            },
+            stroke: {
+                curve: 'smooth',
+                width: 3,
+                colors: ['#f1c40f']
+            },
+            markers: {
+                size: 5,
+                colors: ['#f1c40f'],
+                strokeWidth: 0
+            },
+            colors: ['#f1c40f'],
+            xaxis: {
+                categories: [
+                    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+                    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+                ],
+                labels: {
+                    style: {
+                        colors: '#727272'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    formatter: function (value) {
+                        return value + " kWh";
+                    },
+                    style: {
+                        colors: '#727272'
+                    }
+                }
+            },
+            tooltip: {
+                y: {
+                    formatter: function (value) {
+                        return value + " kWh";
+                    }
+                }
+            }
+        };
+
+        const solarChart = new ApexCharts(document.querySelector("#solarChart"), solarChartOptions);
+        solarChart.render();
+
+        // Animate metric counters
+        const counters = document.querySelectorAll('.metric-value');
+        const speed = 2000;
+
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target') ||
+                          +counter.innerText.replace(/[^0-9.]/g, '');
+            const count = +counter.innerText.replace(/[^0-9.]/g, '');
+            const increment = target / speed;
+
+            if (count < target) {
+                counter.innerText = count;
+                const updateCount = () => {
+                    const count = +counter.innerText.replace(/[^0-9.]/g, '');
+                    const increment = target / speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment).toLocaleString();
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                updateCount();
+            }
+        });
+
+        // Phantom Wallet Integration
+        document.addEventListener('DOMContentLoaded', () => {
+            const connectButton = document.getElementById('connectWallet');
+
+            const isPhantomInstalled = () => {
+                return window.solana && window.solana.isPhantom;
+            };
+
+            const updateWalletStatus = (connected) => {
+                if (connected) {
+                    connectButton.textContent = "Wallet Connected";
+                    connectButton.classList.add('connected');
+                } else {
+                    connectButton.textContent = "Connect Wallet";
+                    connectButton.classList.remove('connected');
+                }
+            };
+
+            connectButton.addEventListener('click', async () => {
+                try {
+                    if (!isPhantomInstalled()) {
+                        window.open('https://phantom.app/', '_blank');
+                        alert('Phantom Wallet non è installato! Verrai reindirizzato al sito di Phantom.');
+                        return;
+                    }
+
+                    const response = await window.solana.connect();
+                    const publicKey = response.publicKey.toString();
+
+                    console.log('Connesso con successo! Public Key:', publicKey);
+                    updateWalletStatus(true);
+
+                    // Store connection status
+                    localStorage.setItem('walletConnected', 'true');
+                    localStorage.setItem('publicKey', publicKey);
+
+                    // You can now use the publicKey for transactions
+
+                } catch (err) {
+                    console.error('Errore durante la connessione:', err);
+                    updateWalletStatus(false);
+                    alert('Errore durante la connessione al wallet: ' + err.message);
+                }
+            });
+
+            // Check if wallet is already connected
+            if (isPhantomInstalled() && localStorage.getItem('walletConnected') === 'true') {
+                updateWalletStatus(true);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Ampere Protocol - Contact Us</title>
+    <meta name="description" content="Contact Ampere Protocol team for inquiries, partnerships or support" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Stile avanzato per la pagina di contatto -->
+    <style>
+        /* Stile avanzato per la sezione hero */
+        .contact-hero {
+            background: linear-gradient(135deg, #24126A 0%, #3E80FF 100%);
+            padding: 120px 0 80px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/contact/crypto-pattern.png') no-repeat center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .contact-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        /* Stile per le card di contatto */
+        .contact-method {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-method:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-method .icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3E80FF 0%, #24126A 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 28px;
+            color: white;
+        }
+
+        .contact-method h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .contact-method p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .contact-method a {
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-method a:hover {
+            color: #3E80FF;
+            transform: translateX(5px);
+        }
+
+        /* Stile avanzato per il form */
+        .contact-form-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            margin-top: -100px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-form-container h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #24126A;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .contact-form-container h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, #3E80FF, #24126A);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #24126A;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #f9f9f9;
+        }
+
+        .form-control:focus {
+            border-color: #3E80FF;
+            box-shadow: 0 0 0 3px rgba(62, 128, 255, 0.2);
+            background: white;
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3E80FF 0%, #24126A 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(62, 128, 255, 0.3);
+        }
+
+        /* Sezione Crypto Connect */
+        .crypto-connect {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            margin-top: 80px;
+            height: 500px;
+            position: relative;
+            background: linear-gradient(135deg, #1a0933 0%, #24126A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            padding: 40px;
+        }
+
+        .crypto-connect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/contact/crypto-network.png') no-repeat center;
+            background-size: cover;
+            opacity: 0.2;
+        }
+
+        .crypto-connect-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .crypto-connect h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #3E80FF, #7E57FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .crypto-connect p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .crypto-wallets {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .wallet-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            width: 120px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .wallet-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .wallet-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .wallet-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        /* Responsive design */
+        @media (max-width: 991px) {
+            .contact-hero {
+                padding: 100px 0 60px;
+            }
+
+            .contact-hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .contact-form-container {
+                margin-top: 0;
+                padding: 30px;
+            }
+
+            .crypto-connect {
+                height: auto;
+                padding: 60px 30px;
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .contact-hero {
+                padding: 80px 0 40px;
+            }
+
+            .contact-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .contact-method {
+                margin-bottom: 30px;
+            }
+
+            .crypto-connect h2 {
+                font-size: 2rem;
+            }
+
+            .wallet-item {
+                width: 100px;
+                padding: 15px;
+            }
+
+            .wallet-item img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="assets/images/logo/white-logo.svg" alt="Logo">
+                            </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a href="index.html" aria-label="Toggle navigation">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="about-us.html" aria-label="Toggle navigation">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                                            data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent"
+                                            aria-expanded="false" aria-label="Toggle navigation">Pages</a>
+                                        <ul class="sub-menu collapse" id="submenu-1-1">
+                                            <li class="nav-item"><a href="about-us.html">About Us</a></li>
+                                            <li class="nav-item"><a href="signin.html">Sign In</a></li>
+                                            <li class="nav-item"><a href="signup.html">Sign Up</a></li>
+                                            <li class="nav-item"><a href="reset-password.html">Reset Password</a></li>
+                                            <li class="nav-item"><a href="mail-success.html">Mail Success</a></li>
+                                            <li class="nav-item"><a href="404.html">404 Error</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="contact.html" class="active" aria-label="Toggle navigation">Contact</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                            <div class="button">
+                                <a href="#" id="connectWallet" class="btn">Connect Wallet</a>
+                            </div>
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Contact Hero Section -->
+    <section class="contact-hero wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="contact-hero-content">
+                <h1 class="wow fadeInUp" data-wow-delay="0.2s">Connect With Us</h1>
+                <p class="wow fadeInUp" data-wow-delay="0.3s">Join the Ampere Protocol revolution. Whether you're an investor, developer, or solar enthusiast, our team is ready to assist you on your crypto journey.</p>
+
+                <div class="row wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="contact-method">
+                            <div class="icon">
+                                <i class="lni lni-map-marker"></i>
+                            </div>
+                            <h3>Global Network</h3>
+                            <p>We operate on a decentralized global network powered by blockchain technology</p>
+                            <a href="#crypto-connect">Explore Network <i class="lni lni-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="contact-method">
+                            <div class="icon">
+                                <i class="lni lni-envelope"></i>
+                            </div>
+                            <h3>Email Support</h3>
+                            <p>Get direct support from our crypto specialists and solar experts</p>
+                            <a href="mailto:ampereprotocol@gmail.com">ampereprotocol@gmail.com <i class="lni lni-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="contact-method">
+                            <div class="icon">
+                                <i class="lni lni-phone"></i>
+                            </div>
+                            <h3>Direct Line</h3>
+                            <p>Speak directly with our crypto support team during business hours</p>
+                            <a href="tel:+393281992891">+39 328 199 2891 <i class="lni lni-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Hero Section -->
+
+    <!-- Start Contact Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="contact-form-container wow fadeInUp" data-wow-delay="0.2s">
+                        <h2>Send Us a Crypto Message</h2>
+                        <p class="mb-4">Use our encrypted contact form to securely reach our team</p>
+                        <form id="contactForm" action="mail.php" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group wow fadeInUp" data-wow-delay="0.3s">
+                                        <label for="name">Your Name</label>
+                                        <input type="text" id="name" name="name" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group wow fadeInUp" data-wow-delay="0.4s">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group wow fadeInUp" data-wow-delay="0.5s">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" class="form-control" required>
+                            </div>
+
+                            <div class="form-group wow fadeInUp" data-wow-delay="0.6s">
+                                <label for="wallet">Your Wallet Address (Optional)</label>
+                                <input type="text" id="wallet" name="wallet" class="form-control" placeholder="e.g., 7uF3aVUviFggvJoTo5Hc4nEB99UAFNz5bJE8PbiGf34C">
+                            </div>
+
+                            <div class="form-group wow fadeInUp" data-wow-delay="0.7s">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" class="form-control" required></textarea>
+                            </div>
+
+                            <div class="form-group form-check wow fadeInUp" data-wow-delay="0.8s">
+                                <input type="checkbox" class="form-check-input" id="cryptoUpdates" name="cryptoUpdates">
+                                <label class="form-check-label" for="cryptoUpdates">I want to receive crypto updates and news from Ampere Protocol</label>
+                            </div>
+
+                            <div class="form-group text-center wow fadeInUp" data-wow-delay="0.9s">
+                                <button type="submit" class="submit-btn">
+                                    <i class="lni lni-lock-alt"></i> Send Encrypted Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crypto Connect Section -->
+            <div class="crypto-connect wow fadeIn" id="crypto-connect" data-wow-delay="0.4s">
+                <div class="crypto-connect-content">
+                    <h2>Join Our Crypto Network</h2>
+                    <p>Connect with us through decentralized channels and become part of the Ampere Protocol ecosystem. Explore multiple ways to interact with our platform and community.</p>
+
+                    <div class="crypto-wallets">
+                        <div class="wallet-item wow fadeInUp" data-wow-delay="0.5s">
+                            <img src="assets/images/contact/wallet-phantom.png" alt="Phantom Wallet">
+                            <p>Phantom</p>
+                        </div>
+                        <div class="wallet-item wow fadeInUp" data-wow-delay="0.6s">
+                            <img src="assets/images/contact/wallet-metamask.png" alt="MetaMask">
+                            <p>MetaMask</p>
+                        </div>
+                        <div class="wallet-item wow fadeInUp" data-wow-delay="0.7s">
+                            <img src="assets/images/contact/wallet-solflare.png" alt="Solflare">
+                            <p>Solflare</p>
+                        </div>
+                        <div class="wallet-item wow fadeInUp" data-wow-delay="0.8s">
+                            <img src="assets/images/contact/wallet-telegram.png" alt="Telegram">
+                            <p>Telegram</p>
+                        </div>
+                        <div class="wallet-item wow fadeInUp" data-wow-delay="0.9s">
+                            <img src="assets/images/contact/wallet-discord.png" alt="Discord">
+                            <p>Discord</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 wow fadeIn" data-wow-delay="1s">
+                        <a href="#" class="btn btn-outline-light btn-lg">Explore Full Network</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Form Section -->
+
+    <!-- Start Footer Area -->
+    <footer class="footer section">
+        <!-- Start Footer Top -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-about">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="assets/images/logo/white-logo.svg" alt="#">
+                                    </a>
+                                </div>
+                                <p>Making the world a better place through constructing Real Technology.</p>
+                                <h4 class="social-title">Follow Us On:</h4>
+                                <ul class="social">
+                                    <li><a href="https://www.facebook.com/profile.php?id=100077280653900&locale=it_IT"><i class="lni lni-facebook-filled"></i></a></li>
+                                    <li><a href="https://www.instagram.com/ampereprotocol?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="lni lni-instagram"></i></a></li>
+                                    <li><a href="https://x.com/amperelayer"><i class="lni lni-twitter-original"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/cristiano-niceta-742919262/"><i class="lni lni-linkedin-original"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-pinterest"></i></a></li>
+                                    <li><a href="https://www.youtube.com/@ampereprotocol"><i class="lni lni-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Solutions</h3>
+                                <ul>
+                                    <li><a href="Solar-Crypto.html">Solar Crypto</a></li>
+                                    <li><a href="analytics.html">Analytics</a></li>
+                                    <li><a href="javascript:void(0)">Tokenomics</a></li>
+                                    <li><a href="javascript:void(0)">DeFi</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Support</h3>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Whitepaper</a></li>
+                                    <li><a href="javascript:void(0)">Documentation</a></li>
+                                    <li><a href="javascript:void(0)">API</a></li>
+                                    <li><a href="javascript:void(0)">Status</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer newsletter">
+                                <h3>Crypto Updates</h3>
+                                <p>Subscribe for the latest Ampere Protocol news and updates</p>
+                                <form action="#" method="get" target="_blank" class="newsletter-form">
+                                    <input name="EMAIL" placeholder="Your Email" required="required" type="email">
+                                    <div class="button">
+                                        <button class="sub-btn"><i class="lni lni-envelope"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Footer Top -->
+        <!-- Start Copyright Area -->
+        <div class="copyright-area">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <p class="copyright-text">© 2025 Ampere Protocol - All Rights Reserved</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <p class="security-text">
+                                <i class="lni lni-lock-alt"></i> Secure Blockchain Technology
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright Area -->
+    </footer>
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/tiny-slider.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+    <script src="assets/js/count-up.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Phantom Wallet Integration -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const connectButton = document.getElementById('connectWallet');
+            const walletAddress = '7uF3aVUviFggvJoTo5Hc4nEB99UAFNz5bJE8PbiGf34C';
+
+            // Funzione per connettere il wallet
+            const connectWallet = async () => {
+                try {
+                    // Controlla se Phantom è installato
+                    if (!window.solana || !window.solana.isPhantom) {
+                        const shouldInstall = confirm('Phantom Wallet non è installato! Vuoi installarlo ora?');
+                        if (shouldInstall) {
+                            window.open('https://phantom.app/', '_blank');
+                        }
+                        return;
+                    }
+
+                    // Richiedi la connessione al wallet
+                    const resp = await window.solana.connect();
+                    if (resp.publicKey) {
+                        const publicKey = resp.publicKey.toString();
+                        console.log('Connesso con successo! Public Key:', publicKey);
+
+                        // Aggiorna l'interfaccia utente
+                        connectButton.innerHTML = `<i class="lni lni-checkmark-circle"></i> Connected`;
+                        connectButton.classList.add('connected');
+
+                        // Salva lo stato della connessione
+                        localStorage.setItem('walletConnected', 'true');
+                        localStorage.setItem('publicKey', publicKey);
+
+                        // Mostra un messaggio di successo
+                        showNotification('Wallet connected successfully!');
+                    }
+                } catch (err) {
+                    console.error('Errore durante la connessione:', err);
+                    showNotification('Error connecting wallet: ' + err.message, 'error');
+                }
+            };
+
+            // Mostra una notifica
+            const showNotification = (message, type = 'success') => {
+                const notification = document.createElement('div');
+                notification.className = `wallet-notification ${type}`;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.classList.add('show');
+                }, 10);
+
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            };
+
+            // Verifica se il wallet è già connesso al caricamento della pagina
+            if (localStorage.getItem('walletConnected') === 'true') {
+                connectButton.innerHTML = `<i class="lni lni-checkmark-circle"></i> Connected`;
+                connectButton.classList.add('connected');
+            }
+
+            // Gestione del click sul pulsante
+            connectButton.addEventListener('click', connectWallet);
+
+            // Gestione avanzata del form di contatto
+            const contactForm = document.getElementById('contactForm');
+
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Mostra lo stato di caricamento
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = `<i class="lni lni-loading"></i> Encrypting...`;
+                submitBtn.disabled = true;
+
+                try {
+                    // Simula l'invio del form (sostituisci con una vera chiamata AJAX)
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+
+                    // Mostra messaggio di successo
+                    showNotification('Your message has been encrypted and sent successfully!');
+                    contactForm.reset();
+
+                } catch (error) {
+                    console.error('Error:', error);
+                    showNotification('There was an error sending your message. Please try again.', 'error');
+                } finally {
+                    // Ripristina il pulsante
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
