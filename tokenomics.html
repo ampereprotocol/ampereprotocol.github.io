@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Ampere Protocol - Tokenomics</title>
+    <meta name="description" content="Advanced tokenomics of Ampere Protocol - The first Solar crypto" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/tokenomics.css" />
+
+    <!-- D3.js for advanced charts -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Chart.js for token distribution -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="assets/images/logo/white-logo.svg" alt="Logo">
+                            </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a href="index.html" aria-label="Toggle navigation">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="about-us.html" aria-label="Toggle navigation">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="tokenomics.html" class="active" aria-label="Toggle navigation">Tokenomics</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="solar-crypto.html" aria-label="Toggle navigation">Solar Crypto</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                                            data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent"
+                                            aria-expanded="false" aria-label="Toggle navigation">Pages</a>
+                                        <ul class="sub-menu collapse" id="submenu-1-1">
+                                            <li class="nav-item"><a href="about-us.html">About Us</a></li>
+                                            <li class="nav-item"><a href="solar-crypto.html">solar Crypto</a></li>
+                                            <li class="nav-item"><a href="Analytics.html">Analytics</a></li>
+                                            <li class="nav-item"><a href="tokenomics.html">Tokenomics</a>
+                                            <li class="nav-item"><a href="mail-success.html">Mail Success</a></li>
+                                            <li class="nav-item"><a href="404.html">404 Error</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="contact.html" aria-label="Toggle navigation">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="button">
+                                <a href="#" id="connectWallet" class="btn">Connect Wallet</a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Tokenomics Hero Section -->
+    <section class="tokenomics-hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="hero-content">
+                        <h1 class="wow fadeInUp" data-wow-delay=".2s">$AMPERE Tokenomics</h1>
+                        <p class="wow fadeInUp" data-wow-delay=".4s">Advanced economic model designed for sustainability and growth in the solar crypto ecosystem.</p>
+                        <div class="token-basic-info wow fadeInUp" data-wow-delay=".6s">
+                            <div class="info-item">
+                                <span class="info-label">Ticker</span>
+                                <span class="info-value">AMPE</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Blockchain</span>
+                                <span class="info-value">Solana</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Total Supply</span>
+                                <span class="info-value">30,000,000</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Max Supply</span>
+                                <span class="info-value">120,000,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="token-visualization wow fadeInUp" data-wow-delay=".8s">
+                        <div class="token-3d-model" id="token3dModel">
+                            <!-- 3D model will be rendered here -->
+                            <img src="assets/images/tokenomics/token-3d.png" alt="AMPERE Token 3D" class="img-fluid">
+                        </div>
+                        <div class="token-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="lni lni-stats-up"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-value" id="currentPrice">$0.042</span>
+                                    <span class="stat-label">Current Price</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="lni lni-bolt"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-value" id="energyValue">3.2 kWh</span>
+                                    <span class="stat-label">Energy Value</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Tokenomics Hero Section -->
+
+    <!-- Start Token Distribution Section -->
+    <section class="token-distribution-section section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">Token Allocation</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Strategic Distribution</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Carefully designed allocation to ensure long-term sustainability and ecosystem growth.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="distribution-chart wow fadeInUp" data-wow-delay=".4s">
+                        <canvas id="tokenDistributionChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="distribution-details wow fadeInUp" data-wow-delay=".6s">
+                        <div class="distribution-item">
+                            <div class="distribution-color" style="background-color: #3E80FF;"></div>
+                            <div class="distribution-content">
+                                <h4>Solar Rewards (40%)</h4>
+                                <p>Distributed to users who connect solar panels and contribute renewable energy to the network.</p>
+                                <div class="distribution-stats">
+                                    <span>12,000,000 AMPERE</span>
+                                    <span>Vesting: 5 years</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="distribution-item">
+                            <div class="distribution-color" style="background-color: #7E57FF;"></div>
+                            <div class="distribution-content">
+                                <h4>Ecosystem Development (25%)</h4>
+                                <p>Funds for platform development, partnerships, and community initiatives.</p>
+                                <div class="distribution-stats">
+                                    <span>7,500,000 AMPERE</span>
+                                    <span>Vesting: 4 years</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="distribution-item">
+                            <div class="distribution-color" style="background-color: #FF6F61;"></div>
+                            <div class="distribution-content">
+                                <h4>Team & Advisors (15%)</h4>
+                                <p>Compensation for core team members and advisors with long-term vesting.</p>
+                                <div class="distribution-stats">
+                                    <span>4,500,000 AMPERE</span>
+                                    <span>Vesting: 3 years</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="distribution-item">
+                            <div class="distribution-color" style="background-color: #FFC107;"></div>
+                            <div class="distribution-content">
+                                <h4>Liquidity & Exchange (12%)</h4>
+                                <p>Ensuring sufficient liquidity on exchanges and market making.</p>
+                                <div class="distribution-stats">
+                                    <span>3,600,000 AMPERE</span>
+                                    <span>Vesting: 2 years</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="distribution-item">
+                            <div class="distribution-color" style="background-color: #4CAF50;"></div>
+                            <div class="distribution-content">
+                                <h4>Community & Marketing (8%)</h4>
+                                <p>Community incentives, airdrops, and marketing campaigns.</p>
+                                <div class="distribution-stats">
+                                    <span>2,400,000 AMPERE</span>
+                                    <span>Vesting: 2 years</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Token Distribution Section -->
+
+    <!-- Start Token Utility Section -->
+    <section class="token-utility-section section bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">Token Utility</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Multi-Dimensional Value</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">$AMPERE serves multiple functions within the ecosystem, creating a robust economic model.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="utility-card wow fadeInUp" data-wow-delay=".2s">
+                        <div class="utility-icon">
+                            <i class="lni lni-bolt"></i>
+                        </div>
+                        <h3>Energy Rewards</h3>
+                        <p>Earn $AMPERE tokens by contributing solar energy to the network through connected panels.</p>
+                        <div class="utility-stats">
+                            <div class="stat">
+                                <span class="value">3.2</span>
+                                <span class="label">AMPERE/kWh</span>
+                            </div>
+                            <div class="stat">
+                                <span class="value">24/7</span>
+                                <span class="label">Real-time</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="utility-card wow fadeInUp" data-wow-delay=".4s">
+                        <div class="utility-icon">
+                            <i class="lni lni-stats-up"></i>
+                        </div>
+                        <h3>Staking</h3>
+                        <p>Stake $AMPERE to earn additional rewards and participate in network governance.</p>
+                        <div class="utility-stats">
+                            <div class="stat">
+                                <span class="value">12-18%</span>
+                                <span class="label">APY</span>
+                            </div>
+                            <div class="stat">
+                                <span class="value">Flexible</span>
+                                <span class="label">Lock-up</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="utility-card wow fadeInUp" data-wow-delay=".6s">
+                        <div class="utility-icon">
+                            <i class="lni lni-graph"></i>
+                        </div>
+                        <h3>Governance</h3>
+                        <p>Vote on protocol upgrades, parameter changes, and ecosystem development proposals.</p>
+                        <div class="utility-stats">
+                            <div class="stat">
+                                <span class="value">1:1</span>
+                                <span class="label">Voting Power</span>
+                            </div>
+                            <div class="stat">
+                                <span class="value">DAO</span>
+                                <span class="label">Structure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="utility-card wow fadeInUp" data-wow-delay=".2s">
+                        <div class="utility-icon">
+                            <i class="lni lni-cart"></i>
+                        </div>
+                        <h3>Energy Trading</h3>
+                        <p>Use $AMPERE to buy/sell renewable energy directly on the decentralized marketplace.</p>
+                        <div class="utility-stats">
+                            <div class="stat">
+                                <span class="value">0.1%</span>
+                                <span class="label">Fee</span>
+                            </div>
+                            <div class="stat">
+                                <span class="value">P2P</span>
+                                <span class="label">Trading</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="utility-card wow fadeInUp" data-wow-delay=".4s">
+                        <div class="utility-icon">
+                            <i class="lni lni-certificate"></i>
+                        </div>
+                        <h3>Carbon Credits</h3>
+                        <p>Convert $AMPERE into verifiable carbon offset certificates.</p>
+                        <div class="utility-stats">
+                            <div class="stat">
+                                <span class="value">1:1</span>
+                                <span class="label">Conversion</span>
+                            </div>
+                            <div class="stat">
+                                <span class="value">NFT</span>
+                                <span class="label">Certificates</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="utility-card wow fadeInUp" data-wow-delay=".6s">
+                        <div class="utility-icon">
+                            <i class="lni lni-code"></i>
+                        </div>
+                        <h3>Developer Access</h3>
+                        <p>Pay for API access and smart contract interactions with $AMPERE.</p>
+                        <div class="utility-stats">
+                            <div class="stat">
+                                <span class="value">50%</span>
+                                <span class="label">Discount</span>
+                            </div>
+                            <div class="stat">
+                                <span class="value">Open</span>
+                                <span class="label">SDK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Token Utility Section -->
+
+    <!-- Start Emission Schedule Section -->
+    <section class="emission-schedule-section section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">Emission Model</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Dynamic Emission Schedule</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Algorithmic emission adjustments based on network activity and energy production.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="emission-chart wow fadeInUp" data-wow-delay=".4s">
+                        <div id="emissionCurveChart"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="emission-details wow fadeInUp" data-wow-delay=".6s">
+                        <div class="emission-model">
+                            <h4>Adaptive Emission Algorithm</h4>
+                            <p>The $AMPERE emission rate adjusts dynamically based on:</p>
+                            <ul>
+                                <li>Total solar energy contributed to the network</li>
+                                <li>Token price stability index</li>
+                                <li>Network participation rate</li>
+                                <li>Staking ratio</li>
+                            </ul>
+                        </div>
+                        <div class="emission-stats">
+                            <div class="stat-item">
+                                <span class="stat-value" id="currentEmission">42,000</span>
+                                <span class="stat-label">Current Daily Emission</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="halvingCountdown">728</span>
+                                <span class="stat-label">Days Until Next Halving</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="emission-table wow fadeInUp" data-wow-delay=".8s">
+                        <h4>Emission Schedule Overview</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Phase</th>
+                                        <th>Duration</th>
+                                        <th>Daily Emission</th>
+                                        <th>Total Emission</th>
+                                        <th>Reward Adjustment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Genesis</td>
+                                        <td>Days 1-180</td>
+                                        <td>50,000 AMPERE</td>
+                                        <td>9,000,000 AMPERE</td>
+                                        <td>+5% Solar Bonus</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Expansion</td>
+                                        <td>Days 181-540</td>
+                                        <td>42,000 AMPERE</td>
+                                        <td>15,120,000 AMPERE</td>
+                                        <td>+3% Solar Bonus</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stabilization</td>
+                                        <td>Days 541-900</td>
+                                        <td>35,000 AMPERE</td>
+                                        <td>12,600,000 AMPERE</td>
+                                        <td>Base Rate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Maturity</td>
+                                        <td>Days 901+</td>
+                                        <td>28,000 AMPERE</td>
+                                        <td>Algorithmic</td>
+                                        <td>Dynamic Adjustment</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Emission Schedule Section -->
+
+    <!-- Start Solar Integration Section -->
+    <section class="solar-integration-section section bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">Solar Integration</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Energy-to-Token Conversion</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Advanced algorithms convert solar energy production into $AMPERE tokens in real-time.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="integration-process wow fadeInUp" data-wow-delay=".4s">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Solar Panel Connection</h4>
+                                <p>Connect your solar panels using our IoT device or compatible inverters.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Energy Monitoring</h4>
+                                <p>Real-time tracking of energy production with blockchain-verified data.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Token Calculation</h4>
+                                <p>Algorithm converts kWh to $AMPERE based on current conversion rate.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Reward Distribution</h4>
+                                <p>Tokens distributed daily to your connected wallet address.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="integration-calculator wow fadeInUp" data-wow-delay=".6s">
+                        <h4>Earnings Calculator</h4>
+                        <div class="calculator-form">
+                            <div class="form-group">
+                                <label for="solarCapacity">Solar System Capacity (kW)</label>
+                                <input type="range" id="solarCapacity" min="1" max="100" value="5" step="0.5">
+                                <div class="range-value">
+                                    <span id="capacityValue">5</span> kW
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sunHours">Daily Sun Hours</label>
+                                <input type="range" id="sunHours" min="1" max="12" value="4.5" step="0.1">
+                                <div class="range-value">
+                                    <span id="sunHoursValue">4.5</span> hours
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="efficiency">System Efficiency (%)</label>
+                                <input type="range" id="efficiency" min="50" max="100" value="85" step="1">
+                                <div class="range-value">
+                                    <span id="efficiencyValue">85</span>%
+                                </div>
+                            </div>
+                            <div class="calculator-results">
+                                <div class="result-item">
+                                    <span>Daily Energy Production</span>
+                                    <span id="dailyProduction">19.13 kWh</span>
+                                </div>
+                                <div class="result-item">
+                                    <span>Daily $AMPERE Rewards</span>
+                                    <span id="dailyRewards">61.22 AMPERE</span>
+                                </div>
+                                <div class="result-item">
+                                    <span>Monthly $AMPERE Rewards</span>
+                                    <span id="monthlyRewards">1,836.60 AMPERE</span>
+                                </div>
+                                <div class="result-item highlight">
+                                    <span>Estimated Monthly Value</span>
+                                    <span id="monthlyValue">$77.14</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Solar Integration Section -->
+
+    <!-- Start Footer Area -->
+    <footer class="footer section">
+      <!-- Start Footer Area -->
+<footer class="footer section">
+  <!-- Start Footer Top -->
+  <div class="footer-top">
+      <div class="container">
+          <div class="inner-content">
+              <div class="row">
+                  <div class="col-lg-4 col-md-6 col-12">
+                      <!-- Single Widget -->
+                      <div class="single-footer f-about">
+                          <div class="logo">
+                              <a href="index.html">
+                                  <img src="assets/images/logo/white-logo.svg" alt="#">
+                              </a>
+                          </div>
+                          <p>Making the world a better place through constructing Real Technology.</p>
+                          <h4 class="social-title">Follow Us On:</h4>
+                          <ul class="social">
+                              <li><a href="https://www.facebook.com/profile.php?id=100077280653900&locale=it_IT"><i class="lni lni-facebook-filled"></i></a></li>
+                              <li><a href="https://www.instagram.com/ampereprotocol?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="lni lni-instagram"></i></a></li>
+                              <li><a href="https://x.com/amperelayer"><i class="lni lni-twitter-original"></i></a></li>
+                              <li><a href="https://www.linkedin.com/in/cristiano-niceta-742919262/"><i class="lni lni-linkedin-original"></i></a></li>
+                              <li><a href="javascript:void(0)"><i class="lni lni-pinterest"></i></a></li>
+                              <li><a href="https://www.youtube.com/@ampereprotocol"><i class="lni lni-youtube"></i></a></li>
+                          </ul>
+                      </div>
+                      <!-- End Single Widget -->
+                  </div>
+                  <div class="col-lg-2 col-md-6 col-12">
+                      <!-- Single Widget -->
+                      <div class="single-footer f-link">
+                        <h3>Solutions</h3>
+                        <ul>
+                            <li><a href="Solar-crypto.html">Solar Crypto</a></li>
+                            <li><a href="analytics.html">Analytics</a></li>
+                            <li><a href="tokenomics.html:void(0)">Tokenomics</a></li>
+                            <li><a href="javascript:void(0)">DeFi</a></li>
+                        </ul>
+                    </div>
+                    <!-- End Single Widget -->
+                </div>
+                <div class="col-lg-2 col-md-6 col-12">
+                    <!-- Single Widget -->
+                    <div class="single-footer f-link">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="javascript:void(0)">Whitepaper</a></li>
+                            <li><a href="javascript:void(0)">Documentation</a></li>
+                            <li><a href="javascript:void(0)">Api</a></li>
+                            <li><a href="javascript:void(0)">Status</a></li>
+                        </ul>
+                      </div>
+                      <!-- End Single Widget -->
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-12">
+                      <!-- Single Widget -->
+                      <div class="single-footer newsletter">
+                          <h3>Subscribe</h3>
+                          <p>Subscribe to our newsletter for the latest updates</p>
+                          <form action="#" method="get" target="_blank" class="newsletter-form">
+                              <input name="EMAIL" placeholder="Email address" required="required" type="email">
+                              <div class="button">
+                                  <button class="sub-btn"><i class="lni lni-envelope"></i>
+                                  </button>
+                              </div>
+                          </form>
+                      </div>
+                      <!-- End Single Widget -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!--/ End Footer Top -->
+  <!-- Start Copyright Area -->
+  <div class="copyright-area">
+      <div class="container">
+          <div class="inner-content">
+              <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12">
+                      <p class="copyright-text">© 2025 Ampere Protocol - All Rights Reserved</p>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12">
+                      <p class="copyright-owner">Made with <i class="lni lni-heart"></i> by <a href="https://www.linkedin.com/in/cristiano-niceta-742919262/" target="_blank">Cristiano Niceta</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- End Copyright Area -->
+</footer>
+<!--/ End Footer Area -->
+    </footer>
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/tiny-slider.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+    <script src="assets/js/count-up.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tokenomics.js"></script>
+
+    <!-- Phantom Wallet Integration -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
+
+</body>
+</html>
