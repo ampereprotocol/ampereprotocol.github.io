@@ -3813,3 +3813,717 @@ margin-top: 10px;
         }
     }
 }
+/* Tokenomics Page Styles */
+.tokenomics-hero-section {
+    background-color: #24126A;
+    color: #fff;
+    padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tokenomics-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/tokenomics/hero-pattern.png') no-repeat center center/cover;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.tokenomics-hero-section .hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.token-basic-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.info-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px 20px;
+    min-width: 120px;
+}
+
+.info-label {
+    display: block;
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.token-visualization {
+    position: relative;
+    height: 100%;
+    min-height: 300px;
+}
+
+.token-3d-model {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.token-stats {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat-item {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.stat-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #3E80FF;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Token Distribution Section */
+.distribution-chart {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    min-height: 350px;
+}
+
+.distribution-details {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.distribution-item {
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.distribution-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.distribution-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 15px;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.distribution-content h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #24126A;
+}
+
+.distribution-content p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.distribution-stats {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+    color: #888;
+}
+
+/* Token Utility Section */
+.token-utility-section {
+    background: #f9f9f9;
+}
+
+.utility-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    height: calc(100% - 30px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.utility-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.utility-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(62, 128, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #3E80FF;
+    font-size: 24px;
+}
+
+.utility-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #24126A;
+}
+
+.utility-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.utility-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.utility-stats .stat {
+    background: #f5f7fa;
+    border-radius: 8px;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.utility-stats .value {
+    display: block;
+    font-weight: 600;
+    color: #3E80FF;
+    font-size: 16px;
+}
+
+.utility-stats .label {
+    display: block;
+    font-size: 12px;
+    color: #888;
+}
+
+/* Emission Schedule Section */
+.emission-chart {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    min-height: 350px;
+}
+
+#emissionCurveChart {
+    width: 100%;
+    height: 350px;
+}
+
+.emission-details {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.emission-model h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #24126A;
+}
+
+.emission-model p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.emission-model ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.emission-model li {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.emission-stats {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.emission-stats .stat-item {
+    flex: 1;
+    text-align: center;
+    background: #f5f7fa;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.emission-stats .stat-value {
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+    color: #3E80FF;
+}
+
+.emission-stats .stat-label {
+    display: block;
+    font-size: 14px;
+    color: #888;
+}
+
+.emission-table {
+    margin-top: 30px;
+}
+
+.emission-table h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #24126A;
+}
+
+.emission-table .table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.emission-table th {
+    background: #3E80FF;
+    color: #fff;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.emission-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    color: #666;
+}
+
+.emission-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Solar Integration Section */
+.solar-integration-section {
+    background: #f9f9f9;
+}
+
+.integration-process {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.process-step {
+    display: flex;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.process-step:last-child {
+    margin-bottom: 0;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: #3E80FF;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-right: 15px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.step-content {
+    padding-top: 8px;
+}
+
+.step-content h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #24126A;
+}
+
+.step-content p {
+    font-size: 14px;
+    color: #666;
+}
+
+.integration-calculator {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.integration-calculator h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #24126A;
+}
+
+.calculator-form .form-group {
+    margin-bottom: 20px;
+}
+
+.calculator-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+.calculator-form input[type="range"] {
+    width: 100%;
+    height: 8px;
+    -webkit-appearance: none;
+    background: #eee;
+    border-radius: 4px;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.calculator-form input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #3E80FF;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.range-value {
+    font-size: 14px;
+    color: #24126A;
+    font-weight: 500;
+}
+
+.calculator-results {
+    margin-top: 30px;
+    background: #f5f7fa;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #666;
+}
+
+.result-item.highlight {
+    font-weight: 600;
+    color: #24126A;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .token-visualization {
+        margin-top: 40px;
+    }
+
+    .distribution-chart {
+        margin-bottom: 30px;
+    }
+
+    .emission-chart {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .tokenomics-hero-section {
+        padding: 80px 0 60px;
+    }
+
+    .token-basic-info {
+        gap: 10px;
+    }
+
+    .info-item {
+        min-width: calc(50% - 10px);
+    }
+
+    .stat-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .stat-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .emission-table .table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .integration-process {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 575px) {
+    .info-item {
+        min-width: 100%;
+    }
+
+    .utility-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .emission-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .result-item {
+        flex-direction: column;
+    }
+
+    .result-item span:last-child {
+        margin-top: 5px;
+    }
+}
+/* Mobile-Specific Styles (max-width: 767px) */
+@media (max-width: 767px) {
+    .tokenomics-hero-section {
+        padding: 80px 0 40px;
+        text-align: center;
+    }
+
+    .token-basic-info {
+        justify-content: center;
+    }
+
+    .info-item {
+        min-width: calc(50% - 10px);
+        padding: 10px 15px;
+    }
+
+    .token-visualization {
+        margin-top: 30px;
+        min-height: 250px;
+    }
+
+    .token-3d-model {
+        height: 250px;
+    }
+
+    .token-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stat-item {
+        padding: 12px;
+    }
+
+    /* Distribution Section */
+    .distribution-details {
+        margin-top: 30px;
+    }
+
+    .distribution-item {
+        flex-direction: column;
+    }
+
+    .distribution-color {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    /* Utility Cards */
+    .utility-card {
+        padding: 20px;
+    }
+
+    .utility-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .utility-stats .stat {
+        flex: 1 0 calc(50% - 10px);
+        min-width: 0;
+    }
+
+    /* Emission Schedule */
+    .emission-details {
+        margin-top: 30px;
+    }
+
+    .emission-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .emission-stats .stat-item {
+        flex: 1 0 calc(50% - 10px);
+        min-width: 0;
+        margin-bottom: 10px;
+    }
+
+    /* Solar Calculator */
+    .integration-process {
+        margin-bottom: 30px;
+    }
+
+    .calculator-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .calculator-results {
+        padding: 15px;
+    }
+
+    .result-item {
+        flex-direction: column;
+    }
+
+    .result-item span:last-child {
+        margin-top: 5px;
+        font-weight: 600;
+    }
+
+    /* Table Responsive */
+    .emission-table .table-responsive {
+        border: 1px solid #eee;
+    }
+
+    .emission-table th,
+    .emission-table td {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    /* Chart Adjustments */
+    .distribution-chart,
+    .emission-chart {
+        min-height: 280px;
+    }
+
+    #emissionCurveChart svg {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Small Mobile Devices (max-width: 575px) */
+@media (max-width: 575px) {
+    .info-item {
+        min-width: 100%;
+    }
+
+    .utility-stats .stat,
+    .emission-stats .stat-item {
+        flex: 1 0 100%;
+    }
+
+    .token-stats .stat-item {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .stat-icon {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+
+    /* Hide some chart elements on very small screens */
+    #tokenDistributionChart {
+        max-height: 250px;
+    }
+
+    .distribution-chart {
+        padding: 15px;
+    }
+
+    #emissionCurveChart .tick text {
+        font-size: 10px;
+    }
+
+    /* Simplify calculator */
+    .integration-calculator {
+        padding: 15px;
+    }
+
+    .range-value {
+        font-size: 13px;
+    }
+
+    /* Adjust timeline steps */
+    .process-step {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .step-number {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+}
