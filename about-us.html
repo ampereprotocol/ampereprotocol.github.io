@@ -1,105 +1,18 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Ampere Protocol - About us.</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
-
-    <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
-    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/about.css" />
-
-    <!-- Stile aggiuntivo per l'animazione SVG -->
-    <style>
-        .about-hero-section {
-            position: relative;
-            padding: 150px 0;
-            background: #24126A; /* Colore di sfondo */
-            color: #fff; /* Testo bianco */
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .about-hero-section h1 {
-            color: #fff; /* Testo bianco per "About Ampere Protocol" */
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .about-hero-section p {
-            color: #fff; /* Testo bianco per la descrizione */
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about-content-section {
-            padding: 80px 0;
-            background: #fff;
-            text-align: center;
-        }
-
-        .about-content-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #1e3c72;
-        }
-
-        .about-content-section p {
-            font-size: 1.1rem;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .values-section {
-            padding: 60px 0;
-            background: #f9f9f9;
-            text-align: center;
-        }
-
-        .values-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #1e3c72;
-        }
-
-        .value-box {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        .value-box img {
-            width: 60px;
-            margin-bottom: 20px;
-        }
-
-        .value-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #1e3c72;
-        }
-
-        .value-box p {
-            font-size: 1rem;
-            color: #555;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>About Ampere Protocol</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="assets/css/about.css"> <!-- Stile principale -->
+<link rel="stylesheet" href="assets/css/about-mobile.css" media="only screen and (max-width: 767px)"> <!-- Solo mobile -->
 </head>
-
 <body>
 
     <!-- Preloader -->
@@ -111,15 +24,13 @@
             </div>
         </div>
     </div>
-    <!-- /End Preloader -->
 
-    <!-- Start Header Area -->
+    <!-- Header -->
     <header class="header navbar-area">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="nav-inner">
-                        <!-- Start Navbar -->
                         <nav class="navbar navbar-expand-lg">
                             <a class="navbar-brand" href="index.html">
                                 <img src="assets/images/logo/white-logo.svg" alt="Logo">
@@ -137,7 +48,16 @@
                                         <a href="index.html" aria-label="Toggle navigation">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="about-us.html" class="active" aria-label="Toggle navigation">About</a>
+                                        <a href="about-us.html" aria-label="Toggle navigation">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="tokenomics.html" class="active" aria-label="Toggle navigation">Tokenomics</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="Solar-Crypto.html" aria-label="Toggle navigation">Solar Crypto</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="whitepaper.html" aria-label="Toggle navigation">Whitepaper</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
@@ -156,78 +76,287 @@
                                         <a href="contact.html" aria-label="Toggle navigation">Contact</a>
                                     </li>
                                 </ul>
-                            </div> <!-- navbar collapse -->
+                            </div>
                             <div class="button">
                                 <a href="#" id="connectWallet" class="btn">Connect Wallet</a>
                             </div>
                         </nav>
-                        <!-- End Navbar -->
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </header>
-    <!-- End Header Area -->
-
-    <!-- Start About Us Hero Section -->
-    <section class="about-hero-section">
-        <div class="container">
-            <h1 class="wow fadeInUp" data-wow-delay=".2s">About Ampere Protocol</h1>
-            <p class="wow fadeInUp" data-wow-delay=".4s">Revolutionizing the future of solar energy with blockchain technology.</p>
-        </div>
-    </section>
-    <!-- End About Us Hero Section -->
-
-    <!-- Start About Content Section -->
-    <section class="about-content-section">
-        <div class="container">
-            <h2 class="wow fadeInUp" data-wow-delay=".2s">Our Story</h2>
-            <p class="wow fadeInUp" data-wow-delay=".4s">Ampere Protocol was born from a vision to merge renewable energy with cutting-edge blockchain technology. Founded in 2025, our mission is to empower individuals and businesses to harness the power of solar energy while earning rewards through a decentralized platform.</p>
-            <p class="wow fadeInUp" data-wow-delay=".6s">Our journey began with a simple idea: to make solar energy not only sustainable but also profitable for everyone. Today, we are proud to be at the forefront of the renewable energy revolution, helping thousands of users worldwide reduce their carbon footprint and earn $AMPERE tokens.</p>
-        </div>
-    </section>
-    <!-- End About Content Section -->
-
-    <!-- Start Values Section -->
-    <section class="values-section">
-        <div class="container">
-            <h2 class="wow fadeInUp" data-wow-delay=".2s">Our Values</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="value-box">
-                        <img src="assets/images/about/icon-sustainability.png" alt="Sustainability Icon">
-                        <h3>Sustainability</h3>
-                        <p>We are committed to promoting renewable energy and reducing carbon emissions worldwide.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".6s">
-                    <div class="value-box">
-                        <img src="assets/images/about/icon-innovation.png" alt="Innovation Icon">
-                        <h3>Innovation</h3>
-                        <p>We leverage blockchain technology to create innovative solutions for the energy sector.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".8s">
-                    <div class="value-box">
-                        <img src="assets/images/about/icon-community.png" alt="Community Icon">
-                        <h3>Community</h3>
-                        <p>We believe in the power of community and strive to create a platform that benefits everyone.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- End Values Section -->
+    </header>
 
-    <!-- Start Footer Area -->
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Powering the future with solar blockchain</h1>
+                <p>Ampere Protocol is revolutionizing renewable energy through decentralized technology and community empowerment.</p>
+                <a href="#our-story" class="btn btn-primary">Our Story</a>
+            </div>
+        </div>
+        <div class="hero-particles" id="particles-js"></div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section" id="our-story">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Story</h2>
+                <div class="section-divider"></div>
+                <p>From vision to reality - our journey in renewable energy innovation</p>
+            </div>
+
+            <div class="story-content">
+                <p>Founded in 2025, Ampere Protocol began with a simple yet powerful idea: to create a decentralized platform that makes solar energy accessible and profitable for everyone. Our team of blockchain experts, renewable energy engineers, and financial specialists came together to build a solution that bridges the gap between clean energy production and cryptocurrency rewards.</p>
+
+                <p>Today, we're proud to be at the forefront of the solar blockchain revolution, with thousands of users across multiple countries participating in our ecosystem.</p>
+            </div>
+
+            <div class="milestones">
+                <div class="milestone">
+                    <div class="milestone-icon">
+                        <i class="lni lni-bulb"></i>
+                    </div>
+                    <h3>Concept Born</h3>
+                    <p>2023</p>
+                    <p>Initial idea of combining solar energy with blockchain rewards</p>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-icon">
+                        <i class="lni lni-prototype"></i>
+                    </div>
+                    <h3>First Prototype</h3>
+                    <p>2024</p>
+                    <p>Developed first working prototype of the system</p>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-icon">
+                        <i class="lni lni-rocket"></i>
+                    </div>
+                    <h3>Official Launch</h3>
+                    <p>2025</p>
+                    <p>Public launch with 1000+ early adopters</p>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-icon">
+                        <i class="lni lni-world"></i>
+                    </div>
+                    <h3>Global Expansion</h3>
+                    <p>2026</p>
+                    <p>Expanded to 10+ countries with 50,000+ users</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Values</h2>
+                <div class="section-divider"></div>
+                <p>The principles that guide everything we do</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="lni lni-leaf"></i>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>We're committed to reducing carbon emissions and promoting renewable energy adoption worldwide.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="lni lni-layers"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We push boundaries by combining blockchain technology with solar energy solutions.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="lni lni-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Our platform is built by and for our users, ensuring fair rewards and participation.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="lni lni-shield"></i>
+                    </div>
+                    <h3>Transparency</h3>
+                    <p>All transactions and energy contributions are verifiable on the blockchain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Founders</h2>
+                <div class="section-divider"></div>
+                <p>The brilliant minds powering Ampere Protocol</p>
+            </div>
+
+            <div class="team-carousel">
+                <div class="team-member active" data-index="0">
+                    <div class="member-image">
+                        <img src="assets/images/team/team1.png" alt="Cristiano Niceta">
+                    </div>
+                    <div class="member-info">
+                        <h3>Cristiano Niceta</h3>
+                        <h4>Founder & CEO</h4>
+                        <p>Visionary leader with 6+ years in blockchain technology. Pioneered the concept of solar crypto rewards and built Ampere Protocol from the ground up.</p>
+                        <div class="member-social">
+                            <a href="https://www.linkedin.com/in/cristiano-niceta-742919262?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=it"><i class="lni lni-linkedin-original"></i></a>
+                            <a href="#"><i class="lni lni-twitter-original"></i></a>
+                            <a href="https://github.com/ampereprotocol"><i class="lni lni-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member" data-index="1">
+                    <div class="member-image">
+                        <img src="assets/images/team/team2.jpg" alt="Ginevra Niceta">
+                    </div>
+                    <div class="member-info">
+                        <h3>Ginevra Niceta</h3>
+                        <h4>Lead Designer</h4>
+                        <p>Gradueted with 110 cum laude, Creative director with a passion for sustainable design. Responsible for the user experience and visual identity of Ampere Protocol.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="lni lni-linkedin-original"></i></a>
+                            <a href="#"><i class="lni lni-twitter-original"></i></a>
+                            <a href="#"><i class="lni lni-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member" data-index="2">
+                    <div class="member-image">
+                        <img src="assets/images/team/team3.jpg" alt="Giuliano Niceta">
+                    </div>
+                    <div class="member-info">
+                        <h3>Giuliano Niceta</h3>
+                        <h4>CTO</h4>
+                        <p>Blockchain architect with expertise in smart contracts and decentralized systems. Leads the technical development of the protocol.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="lni lni-linkedin-original"></i></a>
+                            <a href="#"><i class="lni lni-twitter-original"></i></a>
+                            <a href="#"><i class="lni lni-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member" data-index="3">
+                    <div class="member-image">
+                        <img src="assets/images/team/team4.jpg" alt="Enrico Niceta">
+                    </div>
+                    <div class="member-info">
+                        <h3>Enrico Niceta</h3>
+                        <h4>Art Director</h4>
+                        <p>graduated with 110 cum laude from the Albertina Academy; takes on the role of artistic director for Ampere, in the development of the brand.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="lni lni-linkedin-original"></i></a>
+                            <a href="#"><i class="lni lni-twitter-original"></i></a>
+                            <a href="#"><i class="lni lni-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-nav">
+                <button class="team-prev"><i class="lni lni-chevron-left"></i></button>
+                <div class="team-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                    <span class="dot" data-index="3"></span>
+                </div>
+                <button class="team-next"><i class="lni lni-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Technology</h2>
+                <div class="section-divider"></div>
+                <p>Innovative solutions powering the future of solar energy</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="lni lni-bitcoin"></i>
+                        <div class="tech-pulse"></div>
+                    </div>
+                    <h3>Blockchain Core</h3>
+                    <p>Custom-built blockchain optimized for energy transactions with low fees and high throughput.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="lni lni-sun"></i>
+                        <div class="tech-pulse"></div>
+                    </div>
+                    <h3>Solar Integration</h3>
+                    <p>IoT-enabled devices that connect solar panels to our network for real-time energy tracking.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="lni lni-stats-up"></i>
+                        <div class="tech-pulse"></div>
+                    </div>
+                    <h3>Smart Analytics</h3>
+                    <p>AI-powered analytics to optimize energy distribution and maximize rewards for users.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="lni lni-lock"></i>
+                        <div class="tech-pulse"></div>
+                    </div>
+                    <h3>Security</h3>
+                    <p>Military-grade encryption and audit protocols to protect user data and transactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to join the solar blockchain revolution?</h2>
+                <p>Start earning rewards for your solar energy production today.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Get Started</a>
+                    <a href="contact.html" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer section">
-        <!-- Start Footer Top -->
         <div class="footer-top">
             <div class="container">
                 <div class="inner-content">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-12">
-                            <!-- Single Widget -->
                             <div class="single-footer f-about">
                                 <div class="logo">
                                     <a href="index.html">
@@ -245,10 +374,8 @@
                                     <li><a href="https://www.youtube.com/@ampereprotocol"><i class="lni lni-youtube"></i></a></li>
                                 </ul>
                             </div>
-                            <!-- End Single Widget -->
                         </div>
                         <div class="col-lg-2 col-md-6 col-12">
-                            <!-- Single Widget -->
                             <div class="single-footer f-link">
                                 <h3>Solutions</h3>
                                 <ul>
@@ -258,10 +385,8 @@
                                     <li><a href="javascript:void(0)">DeFi</a></li>
                                 </ul>
                             </div>
-                            <!-- End Single Widget -->
                         </div>
                         <div class="col-lg-2 col-md-6 col-12">
-                            <!-- Single Widget -->
                             <div class="single-footer f-link">
                                 <h3>Support</h3>
                                 <ul>
@@ -271,29 +396,23 @@
                                     <li><a href="javascript:void(0)">Status</a></li>
                                 </ul>
                             </div>
-                            <!-- End Single Widget -->
                         </div>
                         <div class="col-lg-4 col-md-6 col-12">
-                            <!-- Single Widget -->
                             <div class="single-footer newsletter">
                                 <h3>Subscribe</h3>
                                 <p>Subscribe to our newsletter for the latest updates</p>
                                 <form action="#" method="get" target="_blank" class="newsletter-form">
                                     <input name="EMAIL" placeholder="Email address" required="required" type="email">
                                     <div class="button">
-                                        <button class="sub-btn"><i class="lni lni-envelope"></i>
-                                        </button>
+                                        <button class="sub-btn"><i class="lni lni-envelope"></i></button>
                                     </div>
                                 </form>
                             </div>
-                            <!-- End Single Widget -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--/ End Footer Top -->
-        <!-- Start Copyright Area -->
         <div class="copyright-area">
             <div class="container">
                 <div class="inner-content">
@@ -305,53 +424,23 @@
                 </div>
             </div>
         </div>
-        <!-- End Copyright Area -->
     </footer>
-    <!--/ End Footer Area -->
 
-    <!-- ========================= scroll-top ========================= -->
+    <!-- Scroll Top -->
     <a href="#" class="scroll-top">
         <i class="lni lni-chevron-up"></i>
     </a>
 
-    <!-- ========================= JS here ========================= -->
+    <!-- JavaScript -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/tiny-slider.js"></script>
     <script src="assets/js/glightbox.min.js"></script>
-    <script src="assets/js/count-up.min.js"></script>
     <script src="assets/js/main.js"></script>
-
-    <!-- Phantom Wallet Integration -->
-    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const connectButton = document.getElementById('connectWallet');
-            const walletAddress = '7uF3aVUviFggvJoTo5Hc4nEB99UAFNz5bJE8PbiGf34C'; // Il tuo indirizzo Phantom Wallet
-
-            connectButton.addEventListener('click', async () => {
-                try {
-                    // Controlla se Phantom è installato
-                    if (!window.solana || !window.solana.isPhantom) {
-                        alert('Phantom Wallet non è installato!');
-                        return;
-                    }
-
-                    // Richiedi la connessione al wallet
-                    const resp = await window.solana.connect();
-                    if (resp.publicKey) {
-                        console.log('Connesso con successo! Public Key:', resp.publicKey.toString());
-                        alert('Wallet connesso con successo!');
-                        // Puoi aggiornare l'interfaccia utente qui per riflettere lo stato connesso
-                        connectButton.textContent = "Wallet Connected";
-                    }
-                } catch (err) {
-                    console.error('Errore durante la connessione:', err);
-                    alert('Errore durante la connessione al wallet.');
-                }
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="assets/js/about.js"></script>
+    <!-- Alla fine del body -->
+<script src="assets/js/about.js"></script> <!-- Script principale -->
+<script src="assets/js/about-mobile.js" media="only screen and (max-width: 767px)"></script> <!-- Solo mobile -->
 </body>
-
 </html>
