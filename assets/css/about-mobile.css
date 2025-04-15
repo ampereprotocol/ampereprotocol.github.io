@@ -44,24 +44,80 @@
         padding: 40px 0 !important;
     }
 
+    @media only screen and (max-width: 767px) {
+    /* Team Carousel Futurista */
+    .team-carousel {
+        min-height: 420px;
+        perspective: 1000px; /* Per effetti 3D */
+    }
+
     .team-member {
-        flex-direction: column !important;
-        height: auto !important;
+        opacity: 0;
+        transform: rotateY(90deg) scale(0.8);
+        transform-origin: center;
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        filter: blur(2px);
+        position: absolute;
+        width: 100%;
+    }
+
+    .team-member.active {
+        opacity: 1;
+        transform: rotateY(0deg) scale(1);
+        filter: blur(0);
+        position: relative;
     }
 
     .member-image {
-        width: 100% !important;
-        height: 250px !important;
-        margin-bottom: 20px !important;
+        width: 130px !important;
+        height: 130px !important;
+        border-radius: 50% !important;
+        object-fit: cover;
+        border: 2px solid transparent;
+        background: linear-gradient(45deg, #3E80FF, #7E57FF) border-box;
+        box-shadow:
+            0 0 10px rgba(62, 128, 255, 0.6),
+            0 0 20px rgba(126, 87, 255, 0.3);
+        animation: pulse-glow 4s infinite alternate;
+    }
+
+    @keyframes pulse-glow {
+        0% { box-shadow: 0 0 10px rgba(62, 128, 255, 0.6); }
+        100% { box-shadow: 0 0 25px rgba(126, 87, 255, 0.8); }
     }
 
     .member-info {
-        padding: 0 15px !important;
-        text-align: center !important;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 15px !important;
+        margin-top: 15px;
+        border: 1px solid rgba(62, 128, 255, 0.2);
     }
 
     .member-info h3 {
-        font-size: 1.5rem !important;
+        font-size: 1.2rem !important;
+        background: linear-gradient(to right, #3E80FF, #7E57FF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+    }
+
+    .team-dots {
+        margin-top: 25px !important;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        background: rgba(62, 128, 255, 0.3) !important;
+        transition: all 0.4s ease;
+    }
+
+    .dot.active {
+        background: linear-gradient(45deg, #3E80FF, #7E57FF) !important;
+        transform: scale(1.4);
+        box-shadow: 0 0 10px #3E80FF;
     }
 
     /* Cards mobile */
@@ -100,5 +156,11 @@
 
     .member-image {
         height: 200px !important;
+    }
+}
+/* Fix per evitare lampeggi su mobile */
+@media (max-width: 767px) {
+    .team-member:not(.active) {
+        display: none !important;
     }
 }
