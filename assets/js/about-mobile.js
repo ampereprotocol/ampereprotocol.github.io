@@ -32,11 +32,33 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('load', () => setTimeout(() => window.scrollTo(0, 1), 10));
     }
 
-    function showNextTeamMember() {
-        const current = document.querySelector('.team-member.active');
-        const next = current.nextElementSibling || document.querySelector('.team-member:first-child');
-        updateTeamMember(next);
-    }
+    function showTeamMember(index) {
+    teamMembers.forEach((member, i) => {
+        if (i === index) {
+            gsap.to(member, {
+                duration: 0.8,
+                opacity: 1,
+                rotationY: 0,
+                scale: 1,
+                filter: 'blur(0px)',
+                ease: "back.out(1.2)"
+            });
+        } else {
+            gsap.to(member, {
+                duration: 0.5,
+                opacity: 0,
+                rotationY: -90,
+                scale: 0.8,
+                filter: 'blur(2px)',
+                ease: "power2.in"
+            });
+        }
+    });
+
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+    currentIndex = index;
+}
 
     function showPrevTeamMember() {
         const current = document.querySelector('.team-member.active');
