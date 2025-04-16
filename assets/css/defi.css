@@ -148,6 +148,43 @@
         transform: translate(-50%, -10px);
     }
 }
+/* RESET VIDEO SECTION */
+.video-scroll-section {
+    position: relative;
+    height: 300vh; /* 3 volte l'altezza dello schermo */
+    width: 100%;
+    overflow: hidden;
+}
+
+#scroll-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* FIX PER MOBILE */
+@media (max-width: 768px) {
+    .video-scroll-section {
+        height: 500vh; /* Più spazio per scroll su mobile */
+    }
+}
+#scroll-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+body {
+    height: 200vh; /* Altezza extra per permettere lo scroll */
+}
 
 /* DeFi Products Section */
 .defi-products-section {
@@ -813,4 +850,24 @@
         margin-right: 0;
         margin-bottom: 15px;
     }
+    /* Fix per il video */
+.video-container {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+}
+
+.video-overlay {
+    pointer-events: none; /* Permette lo scroll attraverso l'overlay */
+}
+
+#scroll-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
 }
