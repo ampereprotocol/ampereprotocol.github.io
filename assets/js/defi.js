@@ -41,4 +41,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     console.log("Video scroll controller pronto");
+
+    // Aggiungi questo alla fine del defi.js
+  if (window.innerWidth <= 768) {
+      // Animazione alternativa per mobile
+      const mobileHero = document.querySelector('.mobile-hero-section');
+      if (mobileHero) {
+          mobileHero.style.opacity = '0';
+          setTimeout(() => {
+              mobileHero.style.transition = 'opacity 1s ease';
+              mobileHero.style.opacity = '1';
+          }, 300);
+      }
+  }
 });
