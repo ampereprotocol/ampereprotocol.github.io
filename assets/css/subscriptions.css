@@ -1,0 +1,310 @@
+/* assets/css/subscriptions.css */
+
+:root {
+    --primary: #3E80FF;
+    --secondary: #24126A;
+    --accent: #7E57FF;
+    --light-bg: #F4F7FA;
+    --dark-text: #24126A;
+    --body-text: #5f6b7b;
+    --white: #fff;
+    --border-light: #e8eef6;
+}
+
+/* START: New Innovative 3D Hero Section Styles */
+.hero-3d-section {
+    position: relative;
+    height: 60vh;
+    min-height: 450px;
+    background-color: var(--secondary); /* Fallback color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.spline-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+spline-viewer {
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+.hero-3d-section .container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-3d-content {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.hero-3d-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--white);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.hero-3d-content p {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+/* END: New Innovative 3D Hero Section Styles */
+
+
+/* NEW Scroll-Driven Panel Section */
+.scroll-panel-section {
+    padding: 60px 0;
+    background: var(--white);
+}
+.scroll-panel-container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+}
+.panel-visual-pin-wrapper {
+    width: 50%;
+    flex-shrink: 0;
+}
+.panel-visual {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* For glow effect */
+}
+.panel-image {
+    max-width: 85%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(36, 28, 106, 0.15));
+}
+.glow-effect {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background: radial-gradient(circle, rgba(62, 128, 255, 0.15) 0%, rgba(62, 128, 255, 0) 65%);
+    z-index: -1;
+    border-radius: 50%;
+}
+.scroll-content-wrapper {
+    width: 50%;
+    padding-left: 50px;
+    flex-grow: 1;
+}
+.scroll-feature-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 70vh; /* This creates the scroll distance */
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 10px 30px rgba(36, 28, 106, 0.04);
+    /* Initial state for GSAP animation */
+    opacity: 0.3;
+    transform: translateY(40px) scale(0.98);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.scroll-feature-card.is-in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    box-shadow: 0 15px 40px rgba(36, 28, 106, 0.08);
+}
+.scroll-feature-card:last-child { margin-bottom: 10vh; }
+.scroll-feature-card h3 { font-size: 1.8rem; color: var(--dark-text); margin-bottom: 15px; font-weight: 600; }
+.scroll-feature-card p { font-size: 1rem; line-height: 1.7; color: var(--body-text); }
+
+
+/* Payment Calculator Section */
+.payment-calculator-section { background: var(--light-bg); }
+.section-divider { width: 70px; height: 3px; background: linear-gradient(to right, var(--primary), var(--accent)); margin: 15px auto 25px; border-radius: 2px; }
+.calculator-container { background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 15px 40px rgba(36, 28, 106, 0.07); }
+.calculator-controls h4 { font-size: 1.2rem; color: var(--dark-text); margin-bottom: 20px; font-weight: 600; }
+.range-slider { position: relative; }
+.range-slider input[type="range"] { -webkit-appearance: none; width: 100%; height: 8px; background: #e9ecef; border-radius: 5px; outline: none; transition: opacity .2s; }
+.range-slider input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; background: var(--primary); cursor: pointer; border-radius: 50%; border: 3px solid var(--white); box-shadow: 0 0 10px rgba(62,128,255,0.4); }
+.range-slider .range-labels { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--body-text); margin-top: 10px; padding: 0 5px; }
+.plan-selector { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; background: var(--light-bg); padding: 8px; border-radius: 10px; }
+.plan-selector .plan-option { flex: 1; text-align: center; }
+.plan-selector .plan-option span { display: block; padding: 10px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; }
+.plan-selector input { display: none; }
+.plan-selector input:checked + span { background: var(--primary); color: var(--white); box-shadow: 0 3px 10px rgba(62, 128, 255, 0.3); }
+.calculator-summary { background: linear-gradient(135deg, var(--secondary), var(--accent)); color: var(--white); padding: 30px; border-radius: 12px; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.summary-header { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 20px; }
+.summary-line { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 1rem; }
+.summary-line span:last-child { font-weight: 600; }
+.summary-total { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3); }
+.summary-total span:first-child { font-size: 1.2rem; font-weight: 600; }
+.summary-total span:last-child { font-size: 2.2rem; font-weight: 700; display: block; }
+.summary-note { font-size: 0.8rem; opacity: 0.7; margin-top: 15px; }
+
+
+/* Subscription Plans Section */
+.subscription-plans { background: var(--white); }
+.plans-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: stretch; }
+.plan-card { display: flex; flex-direction: column; background: var(--white); border-radius: 15px; box-shadow: 0 10px 30px rgba(36, 28, 106, 0.05); transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); border: 1px solid var(--border-light); text-align: center; overflow: hidden; }
+.plan-card.premium { transform: scale(1.05); box-shadow: 0 15px 45px rgba(62, 128, 255, 0.2); border-color: var(--primary); z-index: 2; }
+.plan-card:hover:not(.premium) { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(36, 28, 106, 0.1); }
+.plan-header { padding: 30px 20px; }
+.plan-header h3 { color: var(--dark-text); font-size: 1.3rem; margin-bottom: 15px; }
+.plan-card.premium .plan-header h3 { color: var(--primary); }
+.price .amount { font-size: 2.8rem; font-weight: 700; line-height: 1; color: var(--dark-text); }
+.price .period { font-size: 1rem; opacity: 0.7; }
+.plan-header p { color: var(--body-text); font-size: 0.9rem; margin-top: 5px; min-height: 3em; }
+.plan-body { text-align: left; padding: 0 25px 25px; flex-grow: 1; }
+.features { list-style: none; padding: 0; margin: 0 0 30px; }
+.features li { margin-bottom: 15px; font-size: 0.95rem; color: var(--body-text); display: flex; align-items: flex-start; line-height: 1.5; }
+.features li.disabled { color: #aaa; }
+.features li.disabled i.lni-close { color: #dc3545; opacity: 0.6; }
+.features li i { margin-right: 12px; font-size: 1.1rem; margin-top: 3px; }
+.features li i.lni-checkmark-circle { color: #28a745; }
+.plan-footer { padding: 0 30px 30px; margin-top: auto; }
+.mining-estimate { background: rgba(62, 128, 255, 0.1); padding: 15px; border-radius: 10px; text-align: center; margin-top: 20px; }
+.estimate-label { font-size: 0.85rem; color: var(--body-text); margin-bottom: 5px; }
+.estimate-value { font-size: 1.2rem; font-weight: 700; color: var(--dark-text); }
+.plan-ribbon { position: absolute; top: 15px; right: -40px; background: var(--primary); color: white; padding: 6px 40px; font-size: 0.8rem; font-weight: 600; transform: rotate(45deg); width: 150px; text-align: center; box-shadow: 0 2px 10px rgba(62, 128, 255, 0.3); }
+.btn-primary, .btn-primary-outline { width: 100%; padding: 12px 20px; }
+.btn-primary { border: 2px solid var(--primary); background: var(--primary); color: var(--white); }
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn-primary-outline { border: 2px solid var(--primary); background: transparent; color: var(--primary); }
+.btn-primary-outline:hover { background: var(--primary); color: var(--white); }
+
+/* Payment Modal (same as before) */
+.payment-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(36, 28, 106, 0.6); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 1050; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+.payment-modal-overlay.active { opacity: 1; visibility: visible; }
+.payment-modal-container { background: var(--white); border-radius: 15px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); width: 90%; max-width: 420px; position: relative; transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+.payment-modal-overlay.active .payment-modal-container { transform: scale(1); }
+.close-modal-btn { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; color: #aaa; cursor: pointer; transition: color 0.3s; }
+.close-modal-btn:hover { color: var(--dark-text); }
+.modal-header { text-align: center; padding: 25px 25px 15px; border-bottom: 1px solid var(--border-light); }
+.modal-submit { width: 100%; padding: 14px; font-size: 1.1rem; margin-top: 10px; }
+
+/* ---- START: NEW STYLES FOR MODAL CONTENT ---- */
+.modal-body {
+    padding: 25px;
+    padding-top: 15px;
+}
+.payment-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 25px;
+}
+.payment-tabs .tab-link {
+    flex: 1 1 0;
+    text-align: center;
+    padding: 12px 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--body-text);
+    position: relative;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px; /* Overlaps container border */
+}
+.payment-tabs .tab-link:hover {
+    color: var(--dark-text);
+}
+.payment-tabs .tab-link.active {
+    color: var(--primary);
+    font-weight: 600;
+    border-bottom-color: var(--primary);
+}
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.tab-content.active {
+    display: block;
+}
+#card-payment-form .form-group {
+    margin-bottom: 15px;
+}
+#card-payment-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--body-text);
+    font-weight: 500;
+}
+#card-payment-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdfe6;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background: #fdfdff;
+}
+#card-payment-form input::placeholder {
+    color: #a8aebf;
+}
+#card-payment-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(62, 128, 255, 0.2);
+}
+#card-payment-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.crypto-payment-content {
+    text-align: center;
+    padding: 20px 0 10px;
+}
+.crypto-payment-content .lni-bitcoin {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: inline-block;
+}
+.crypto-payment-content h4 {
+    font-size: 1.5rem;
+    color: var(--dark-text);
+    margin-bottom: 10px;
+}
+.crypto-payment-content p {
+    color: var(--body-text);
+    line-height: 1.6;
+    max-width: 320px;
+    margin: 0 auto 25px;
+    font-size: 0.95rem;
+}
+/* ---- END: NEW STYLES FOR MODAL CONTENT ---- */
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .hero-3d-content h1 { font-size: 2.5rem; }
+    .scroll-panel-container { flex-direction: column; }
+    .panel-visual-pin-wrapper, .scroll-content-wrapper { width: 100%; padding: 0; }
+    .panel-visual { position: static; height: auto; padding: 0 0 40px; }
+    .panel-image { max-height: 400px; margin: 0 auto; }
+    .scroll-feature-card { margin-bottom: 30px !important; }
+    .plans-container { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto; }
+    .plan-card, .plan-card.premium { transform: scale(1) !important; margin-bottom: 25px; }
+    .calculator-container .col-lg-5 { margin-top: 30px; }
+}
