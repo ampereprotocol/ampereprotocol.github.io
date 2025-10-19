@@ -39,7 +39,7 @@ I contenuti sono in costante aggiornamento e possono subire modifiche durante lo
 🔹 Tutte le informazioni presenti sul sito ampereprotocol.github.io sono esclusivamente a scopo di design e dimostrazione grafica.
 🔹 Qualsiasi descrizione personale o professionale (es. “esperto”, “fondatore”, “team”, “consulente”, ecc.) è puramente illustrativa e non ha valore legale o dichiarativo.
 🔹 I contenuti non costituiscono offerta di investimento, né consulenza finanziaria.
-🔹 Ampere Protocol non raccoglie capitali attraverso questa pagina GitHub.
+🔹 Ampere Protocol NON è ancora un'entità registrata e NON raccoglie capitali attraverso questa pagina GitHub.
 
 📬 Contatti ufficiali
 
